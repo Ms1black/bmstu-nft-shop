@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Web3 from "web3";
-import "./styles.css";
+import "./index.css";
 
 const App = () => {
   const [balance, setBalance] = useState("0");
