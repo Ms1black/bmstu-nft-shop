@@ -7,7 +7,7 @@ const App = () => {
 
   useEffect(() => {
     const loadBlockchainData = async () => {
-      const web3 = new Web3("http://127.0.0.1:8545");
+      const web3 = new Web3("http://backend:8080/api/ganache");
       const accounts = await web3.eth.getAccounts();
       if (accounts.length > 0) {
         const balanceWei = await web3.eth.getBalance(accounts[0]);
