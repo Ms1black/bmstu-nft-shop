@@ -7,6 +7,8 @@ RUN go build -o nft_backend main.go
 FROM alpine:3.18
 WORKDIR /root/
 COPY --from=builder /app/nft_backend .
-EXPOSE 8080
+COPY certs/cert.pem /root/cert.pem
+COPY certs/key.pem /root/key.pem
+EXPOSE 443
 
 CMD ["./nft_backend"]
