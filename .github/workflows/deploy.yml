@@ -8,7 +8,7 @@ on:
 jobs:
     deploy:
         runs-on: ubuntu-latest
-
+        
         steps:
         - name: chekout repository 
           uses: actions/checkout@v3
