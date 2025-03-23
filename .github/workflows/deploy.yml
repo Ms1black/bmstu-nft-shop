@@ -16,17 +16,18 @@ jobs:
         - name: upd docker-images
           run: |
             sudo apt-get update
-            sudo apt-get install -y docker-compose
+            sudo apt-get install -y docker.io
+            sudo apt-get install -y docker-compose-plugin
 
         - name: build docker-container
           run: |
-            docker-compose -f docker/docker-compose.yml build
+            docker-compose -f docker-compose.yml build
 
         - name: run ganache & etc
           run: |
-            docker-compose -f docker/docker-compose.yml up -d ganache
+            docker-compose -f docker-compose.yml up -d ganache
             sleep 5
-            docker-compose -f docker/docker-compose.yml up -d
+            docker-compose -f docker-compose.yml up -d
 
         - name: test for ganache
           run: |
@@ -43,7 +44,7 @@ jobs:
             mkdir -p public
             cp -r frontend/build/* public/
 
-        - name:
+        - name: deploy gh-pages
           uses: JamesIves/github-pages-deploy-action@v4
           with:
             branch: gh-pages
