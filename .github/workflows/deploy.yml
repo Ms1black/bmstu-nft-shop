@@ -1,0 +1,51 @@
+name: BMSTU Store deploy
+
+on: 
+    push:
+        branches:
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: chekout repository 
+          uses: actions/checkout@v3
+
+        - name: upd docker-images
+          run: |
+            sudo apt-get update
+            sudo apt-get install -y docker-compose
+
+        - name: build docker-container
+          run: |
+            docker-compose -f docker/docker-compose.yml build
+
+        - name: run ganache & etc
+          run: |
+            docker-compose -f docker/docker-compose.yml up -d ganache
+            sleep 5
+            docker-compose -f docker/docker-compose.yml up -d
+
+        - name: test for ganache
+          run: |
+            curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x627306090abab3a6e1400e9345bc60c78a8bef57", "latest"],"id":1}' -H "Content-Type: application/json" http://127.0.0.1:8545          
+          
+        - name: building frontend
+          run: |
+            cd frontend
+            npm install
+            npm run build
+
+        - name: preparation deploy
+          run: |
+            mkdir -p public
+            cp -r frontend/build/* public/
+
+        - name:
+          uses: JamesIves/github-pages-deploy-action@v4
+          with:
+            branch: gh-pages
+            folder: public
+            clean: true
