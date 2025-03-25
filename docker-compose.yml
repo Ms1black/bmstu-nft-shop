@@ -1,16 +1,16 @@
 version: '3.9'
 
 services:
-  backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    ports:
-      - "443:443"
-    depends_on:
-      - ganache
-    networks:
-      - app_network
+  # backend:
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "443:443"
+  #   depends_on:
+  #     - ganache
+  #   networks:
+  #     - app_network
 
   frontend:
     build:
