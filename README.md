@@ -11,3 +11,8 @@ design architecture & web application:
 [link](https://www.figma.com/design/f8YbSrwLwNCVLodoDKJJ0A/%D0%9A%D1%83%D1%80%D1%81%D0%BE%D0%B2%D0%B0%D1%8F?node-id=46-2&t=oSLlPh0N5mSVPCKI-1)
 
 ----------
+
+
+<div align="center">
+<img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmFkOWlxbXJ4YXRrc2J3NG5hcjV5MDhwbXEybTc4MmRramlraDk2bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KZGN8tU5OmFJC/giphy.gif"></img>
+</div>
